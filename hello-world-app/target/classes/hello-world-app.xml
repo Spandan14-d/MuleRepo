@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="3ce21890-6f90-482c-abb0-f351d90769fb" >
+		<http:listener-connection host="0.0.0.0" port="8080" />
+	</http:listener-config>
+	<flow name="hello-world-appFlow" doc:id="dceec774-f1a4-4d3a-8b82-e80f17aa2816" >
+		<http:listener doc:name="Listener" doc:id="a4ae0909-309a-4c94-a655-b15cf53093d5" config-ref="HTTP_Listener_config" path="/test"/>
+		<logger level="INFO" doc:name="Logger" doc:id="64590b39-bb50-4c1a-bb8a-190a3d9a3287" message="logging payload" />
+		<set-payload value="Transaction Successful" doc:name="Set Payload" doc:id="70a575dc-6dbd-4901-a908-970af6f6b479" />
+	</flow>
+</mule>
